@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday.!!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- start -->
+  <div class="startScreen"id="startScreen">
+    <button id="startBtn">🎬 START THE CELEBRATION ☺️</button>
+  </div>
+  <!-- music -->
+  <audio id="avengerstheme" src="audio/avengers_theme.mp3" autoplay></audio>
+  <audio id="happyBirthday" src="audio/happybirthday.mp3"></audio>
+  <!-- content -->
+   <div id="birthdaySection" class="hidden">
+  <div class="vertical-text">HAPPY<kbd>&#x2661;</kbd></div>
+  <div class="container center">
+    <div class="candle" id="candle"></div>
+    <div class="layer-1"></div>
+    <div class="layer-2"></div>
+    <div class="layer-3"></div>
+  </div>
+   <div class="vertical-text2">BIRTHDAY</div>
+  <!-- popup -->
+  <div id="popup" class="popup hidden">
+    <p>Make a wish and blow the candle 🎂 <button onclick="blowCandle()">Blow!</button></p>
+  </div>
+  <!-- message -->
+  <div id="nameInput" class="name-popup hidden">
+    <label>Enter your name:</label>
+    <input type="text" id="username" />
+    <button onclick="showMessage()">Celebrate 🎉</button>
+  </div>
+    </div>
+  <div id="message" class="birthday-message hidden"></div>
+    
+  <script src="script.js"></script>
+</body>
+</html>

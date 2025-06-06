@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday!!</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<style>
+  .hidden {
+  display: none;
+}
+
+.popup, .name-popup {
+  position: relative;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(20, 20, 20, 0.9);
+  color: white;
+  padding: 2em;
+  border-radius: 1em;
+  text-align: center;
+  z-index: 1000;
+  font-family: 'SweetHipster', cursive;
+  font-size: 1.5rem;
+}
+
+.popup button, .name-popup button {
+  margin-top: 1em;
+  padding: 0.5em 1.2em;
+  font-size: 1rem;
+  border: none;
+  background: #ff4081;
+  color: white;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+.birthday-message {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'SweetHipster', cursive;
+  color: #fff;
+  font-size: 3rem;
+  text-shadow: 2px 2px 5px #000;
+  animation: pop 1s ease-in-out forwards;
+  z-index: 999;
+}
+
+@keyframes pop {
+  0% { opacity: 0; transform: scale(0.5) translateX(-50%); }
+  100% { opacity: 1; transform: scale(1) translateX(-50%); }
+}
+
+/* Candle blow-out effect */
+.candle.blown-out::before {
+  display: none;
+}
+
+</style>
+<body>
+  <div class="vertical-text">HAPPY</div>
+
+  <div class="container center" id="cake-container">
+    <div class="candle" id="candle"></div>
+    <div class="layer-1"></div>
+    <div class="layer-2"></div>
+    <div class="layer-3"></div>
+  </div>
+
+  <div class="vertical-text2">BIRTHDAY</div>
+
+  <div id="popup" class="popup hidden">
+    <p>Make a wish and blow the candle 🎂</p>
+    <button onclick="blowCandle()">Blow!</button>
+  </div>
+
+  <div id="nameInput" class="name-popup hidden">
+    <label>Enter your name:</label>
+    <input type="text" id="username"/>
+    <button onclick="showMessage()">Celebrate 🎉</button>
+  </div>
+
+  <div id="message" class="birthday-message hidden"></div>
+
+  <audio id="birthdayAudio" src="audio/happy-birthday-254480.mp3"></audio>
+ <script>
+  window.onload = () => {
+  setTimeout(() => {
+    document.getElementById('popup').classList.remove('hidden');
+  }, 8000); // After cake animation
+};
+
+function blowCandle() {
+  const candle = document.getElementById("candle");
+  candle.classList.add("blown-out");
+  document.getElementById('popup').classList.add('hidden');
+  document.getElementById('nameInput').classList.remove('hidden');
+}
+
+function showMessage() {
+  const name = document.getElementById("username").value || "Friend";
+  const messageDiv = document.getElementById("message");
+  messageDiv.innerText = `🎉 Happy Birthday, ${name}! 🎉\nMay all your dreams come true!`;
+
+  // Show the message
+  document.getElementById("nameInput").classList.add("hidden");
+  messageDiv.classList.remove("hidden");
+
+  // Play music
+  document.getElementById("birthdayAudio").play();
+
+  // Simulate confetti blast
+  launchConfetti();
+}
+
+function launchConfetti() {
+  // Basic confetti using emojis
+  const emojis = ["🎊", "🎉", "✨", "💥"];
+  for (let i = 0; i < 30; i++) {
+    const confetti = document.createElement("div");
+    confetti.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+    confetti.style.position = "fixed";
+    confetti.style.top = Math.random() * 100 + "vh";
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.fontSize = "2rem";
+    confetti.style.animation = "fall 3s ease-in-out forwards";
+    document.body.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 3000);
+  }
+}
+
+ </script>
+  <script src="script.js"></script>
+</body>
+</html>
