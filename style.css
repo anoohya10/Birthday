@@ -381,22 +381,5 @@ height: 22%;
 .candle.blown-out::before {
   display: none;
 }
-#downloadBtn {
-    background: #275ba9;
-    color: #ece7e7;
-    font-size: 1.2rem;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    box-shadow: 2px 2px 10px #000;
-    transition: transform 0.2s;
-    height: 55%;
-  font-family: "Poppins", sans-serif;
-  margin-bottom: -40%;
-  margin-left: 17%;
-}
-#downloadBtn:hover {
-  transform: scale(1.05);
-}
+
 

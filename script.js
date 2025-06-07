@@ -45,19 +45,9 @@ function showMessage() {
   const name = document.getElementById("username").value || "Friend";
   message.innerHTML = `
     🎉 HAPPY BIRTHDAY🎂, ${name}! 🎉<br>Hope you have a wonderful birthday!<br>
-    <br><br>
-    <button onclick="downloadLetter()" id="downloadBtn">📜 Get Your Secret Letter</button>
+    Keep smiling...🤗
   `;
   nameInput.classList.add("hidden");
   message.classList.remove("hidden");
 }
 
-// removing part
-function downloadLetter() {
-  const link = document.createElement("a");
-  link.href = "birthday_letter_for_aditya.pdf";  
-  link.download = "Secret_Letter_for_Aditya.pdf";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-}
